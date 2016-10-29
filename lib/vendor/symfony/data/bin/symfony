@@ -1,0 +1,34 @@
+#!/usr/bin/env php
+<?php
+
+/*
+ * This file is part of the symfony package.
+ * (c) Fabien Potencier <fabien.potencier@symfony-project.com>
+ * 
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ *
+ * + ------------------------------------------------------------------- +
+ * Añadiendo nuevas formas a lo ya optimizado. Por Oswaldo Rojas un
+ * Jueves, 25 Septiembre 2014 11:26:10
+ * + ------------------------------------------------------------------- +
+ */
+
+// El proyecto existe ?
+if (file_exists('config/ProjectConfiguration.class.php')) {
+    require_once('config/ProjectConfiguration.class.php');
+    $dir = sfCoreAutoload::getInstance()->getBaseDir();
+} else {
+    if (is_readable(dirname(__FILE__).'/../../lib/autoload/sfCoreAutoload.class.php')) {
+        // SVN
+        $dir = realpath(dirname(__FILE__).'/../../lib');
+    } else {
+        // PEAR
+        $dir = '@PEAR-DIR@/symfony';
+        if (!is_dir($dir)) {
+            throw new Exception('No se puede encontrar las librerias de symfony');
+        }
+    }
+}
+
+include($dir.'/command/cli.php');

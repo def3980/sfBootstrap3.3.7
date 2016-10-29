@@ -1,0 +1,1 @@
+    cache contiene o guarda los archivos en cache

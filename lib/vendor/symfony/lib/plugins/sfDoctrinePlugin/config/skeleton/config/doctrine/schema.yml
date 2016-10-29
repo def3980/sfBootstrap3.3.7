@@ -1,0 +1,24 @@
+# + -------------------------------------------------------------------------- +
+# Creado por ##AUTHOR_NAME##
+# Fecha: ##FECHA_Y_HORA##
+#
+# Acciones realizadas:
+#  - Veces ejecutado doctrine:build-schema  : "000000"
+#  - Ultima vez que se actualizo el esquema : "yyyy-mm-dd_hh:mm:ss"
+# + -------------------------------------------------------------------------- +
+# Detalle del modelo base de base de datos mediante ingenieria inversa o
+# directa. Tu decides.
+#
+# Ejemplo para una base de datos con ingenieria directa
+#
+#SitioWebPadres:
+#  actAs: { Timestampable: ~ }
+#  columns:
+#    nombres: { type: string(255), notnull: true, unique: true }
+#
+#SitioWebHijos:
+#  actAs: { Timestampable: ~ }
+#  columns:
+#    padres_id: { type: integer, notnull: true }
+#    nombres:   { type: string(255) }
+#    apellidos: { type: string(255) }

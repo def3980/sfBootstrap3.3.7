@@ -1,0 +1,32 @@
+# + -------------------------------------------------------------------------- +
+# Proyecto generado, configurado e instalado con el nombre:
+#
+# ##PROJECT_NAME##
+#
+# author  ##AUTHOR_NAME##
+# fecha   ##FECHA_Y_HORA##
+#
+# Llena este archivo con datos de prueba que seran cargados por la tarea *:data-load
+# del ORM elegido (Doctrine || Propel), ademas puedes crear multiples archivos
+# en este directorio por ejemplo (010_usuarios.yml, 020_articulos.yml, etc.)
+# los cuales seran cargados de forma alfabetica.
+#
+# Mira la documentacion de tu ORM en internet para mas informacion.
+# + -------------------------------------------------------------------------- +
+#
+#User:
+#  fabien:
+#    username: fabien
+#    password: changeme
+#    name:     Fabien Potencier
+#    email:    fabien.potencier@symfony-project.com
+#  kris:
+#    username: Kris.Wallsmith
+#    password: changeme
+#    name:     Kris Wallsmith
+#    email:    kris.wallsmith@symfony-project.com
+#  oswaldo:
+#    username: oswaldo.rojas
+#    password: P4ssW0rd_difici1isim4
+#    name:     Oswaldo Rojas
+#    email:    tucorreo@gmail.com

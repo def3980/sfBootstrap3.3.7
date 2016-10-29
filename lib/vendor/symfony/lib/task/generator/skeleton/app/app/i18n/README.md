@@ -1,0 +1,1 @@
+    aqui se ubicaran los archivo xml de internacionalizacion

@@ -1,0 +1,17 @@
+# You can find more information about this file on the symfony website:
+# http://www.symfony-project.org/reference/1_4/en/13-View
+
+default:
+#  http_metas:
+#    content-type: text/html
+  
+  metas:
+    charset:     utf-8~
+    viewport:    'width=device-width, initial-scale=1.0'
+    description: 
+    author: 
+
+  stylesheets: [ bootstrap: { bootstrap : true }, bootstrap-responsive: { bootstrap : true }, docs: { bootstrap : true }, google-code-prettify: { bootstrap : true } ]
+  javascripts: [ widgets, jquery, bootstrap-transition, bootstrap-alert, bootstrap-modal, bootstrap-dropdown, bootstrap-scrollspy, bootstrap-tab, bootstrap-tooltip, bootstrap-popover, bootstrap-button, bootstrap-collapse, bootstrap-carousel, bootstrap-typeahead, bootstrap-affix, holder/holder, google-code-prettify/prettify, application ]
+  has_layout:  true
+  layout:      layout

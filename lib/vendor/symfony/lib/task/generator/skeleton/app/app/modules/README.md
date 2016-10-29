@@ -1,0 +1,1 @@
+    el codifo de la aplicacion modelo - controlador - vista (MVC)

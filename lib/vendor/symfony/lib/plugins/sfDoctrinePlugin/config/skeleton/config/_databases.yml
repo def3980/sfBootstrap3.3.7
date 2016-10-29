@@ -1,0 +1,19 @@
+# You can find more information about this file on the symfony website:
+# http://www.symfony-project.org/reference/1_4/en/07-Databases
+
+# + -------------------------------------------------------------------------- +
+# Creado por ##AUTHOR_NAME##
+# Fecha: ##FECHA_Y_HORA##
+#
+# Acciones realizadas:
+#  - Veces ejecutado configure:database     : "000"
+#  - Ultima vez que se actualizo el esquema : "yyyy-mm-dd_hh:mm:ss"
+# + -------------------------------------------------------------------------- +
+
+all:
+  doctrine:
+     class: sfDoctrineDatabase
+     param:
+       dsn: mysql:host=localhost;dbname=##PROJECT_NAME##
+       username: root
+       password: 

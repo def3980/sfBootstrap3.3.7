@@ -1,0 +1,1 @@
+    log contiene o guarda los archivos de registro

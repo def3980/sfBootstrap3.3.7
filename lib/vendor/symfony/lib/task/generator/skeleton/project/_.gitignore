@@ -1,0 +1,39 @@
+# Renombra este archivo de _.gitignore a .gitignore para cuando estes listo
+# a usar el proyecto en un repositorio git.
+# ------------------------------------------------------------- Symfony 1.4.20
+/cache/*
+/log/*
+/config/app.yml
+/config/app.yml~
+/config/databases.yml
+/config/databases.yml~
+/apps/backend/config/factories.yml
+/apps/backend/config/factories.yml~
+/apps/frontend/config/factories.yml
+/apps/frontend/config/factories.yml~
+# ----------------------------------------------------------------------------
+
+# ------------------------------------------------------------------- Editores
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+.idea/
+.*.sw[a-z]
+*.un~
+Session.vim
+.netrwhist
+/*.sublime-project
+*.sublime-workspace
+.gitignore~
+*.~
+*.*~
+# ----------------------------------------------------------------------------
+
+# -------------------------------------------------------------------- Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+# -----------------------------------------------------------------------------

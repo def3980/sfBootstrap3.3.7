@@ -1,0 +1,38 @@
+# + -------------------------------------------------------------------------- +
+# Proyecto generado, configurado e instalado con el nombre:
+#
+# ##PROJECT_NAME##
+#
+# author  ##AUTHOR_NAME##
+# fecha   ##FECHA_Y_HORA##
+#
+# app.yml es un archivo para variables con valores constantes al cual se puede
+# acceder desde cualquier controlador (frontend, backend, etc.) por el lado
+# de desarrollo, test o produccion. Es similar al app.yml ubicado en el directorio
+# config de cada controlador con la diferencia que funciona de manera global a
+# cada uno de ellos.
+#
+# Para usar las variables globales copia y pega este archivo en este directorio
+# y renombralo a app.yml, con esto esta listo su funcionamiento.
+#
+# Referencia:
+# http://www.symfony-project.org/reference/1_4/en/11-App
+# + -------------------------------------------------------------------------- +
+
+# Opcion ambiente de desarrollo en cualquier controlador
+dev:
+  var_string: 'texto con espacios'
+  mail:
+    info:     tuemail@correo.com
+
+# Opcion ambiente de produccion en cualquier controlador
+prod:
+  var_string: 'texto con espacios'
+  mail:
+    info:     tuemail@correo.com
+
+# Opcion ambiente de desarrollo y produccion en cualquier controlador
+all:
+  avatar_small_size:  48
+  avatar_medium_size: 100
+  avatar_large_size:  250

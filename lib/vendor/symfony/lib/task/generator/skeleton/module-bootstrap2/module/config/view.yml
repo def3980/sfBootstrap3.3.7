@@ -1,0 +1,40 @@
+# Es necesario quitar del layout por defecto algunas librerias que no son 
+# necesarias en esta plantilla.
+# http://librosweb.es/symfony_1_4/capitulo_7/configuracion_de_la_vista.html
+
+# Sera afectado solo a la parte de ejemplos en la opcion Getting Starter
+starterTemplateSuccess:
+    stylesheets: [-docs, -google-code-prettify]
+    javascripts: [-widgets: {}, -bootstrap-affix: {}, -holder/holder: {}, -google-code-prettify/prettify: {}, -application: {}]
+
+heroSuccess:
+    stylesheets: [-docs, -google-code-prettify]
+    javascripts: [-widgets: {}, -bootstrap-affix: {}, -holder/holder: {}, -google-code-prettify/prettify: {}, -application: {}]
+
+fluidSuccess:
+    stylesheets: [-docs, -google-code-prettify]
+    javascripts: [-widgets: {}, -bootstrap-affix: {}, -holder/holder: {}, -google-code-prettify/prettify: {}, -application: {}]
+
+marketingNarrowSuccess:
+    stylesheets: [-docs, -google-code-prettify]
+    javascripts: [-widgets: {}, -bootstrap-affix: {}, -holder/holder: {}, -google-code-prettify/prettify: {}, -application: {}]
+
+justifiedNavSuccess:
+    stylesheets: [-docs, -google-code-prettify]
+    javascripts: [-widgets: {}, -bootstrap-affix: {}, -holder/holder: {}, -google-code-prettify/prettify: {}, -application: {}]
+
+signinSuccess:
+    stylesheets: [-docs, -google-code-prettify]
+    javascripts: [-widgets: {}, -bootstrap-affix: {}, -holder/holder: {}, -google-code-prettify/prettify: {}, -application: {}]
+
+stickyFooterSuccess:
+    stylesheets: [-docs, -google-code-prettify]
+    javascripts: [-widgets: {}, -bootstrap-affix: {}, -holder/holder: {}, -google-code-prettify/prettify: {}, -application: {}]
+
+stickyFooterNavbarSuccess:
+    stylesheets: [-docs, -google-code-prettify]
+    javascripts: [-widgets: {}, -bootstrap-affix: {}, -holder/holder: {}, -google-code-prettify/prettify: {}, -application: {}]
+
+carouselSuccess:
+    stylesheets: [-docs, -google-code-prettify]
+    javascripts: [-widgets: {}, -bootstrap-affix: {}, -google-code-prettify/prettify: {}, -application: {}]

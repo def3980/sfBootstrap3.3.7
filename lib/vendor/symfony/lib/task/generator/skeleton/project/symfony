@@ -1,0 +1,22 @@
+#!/usr/bin/env php
+<?php
+
+/**
+ * This file is part of the symfony package.
+ * (c) Fabien Potencier <fabien.potencier@symfony-project.com>
+ * 
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+/**
+ * Proyecto generado, configurado e instalado con el nombre:
+ * 
+ * ##PROJECT_NAME##
+ *
+ * @author  ##AUTHOR_NAME##
+ * @fecha   ##FECHA_Y_HORA##
+ */
+chdir(dirname(__FILE__));
+require_once(dirname(__FILE__).'/config/ProjectConfiguration.class.php');
+include(sfCoreAutoload::getInstance()->getBaseDir().'/command/cli.php');

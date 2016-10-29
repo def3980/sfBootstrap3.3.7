@@ -1,0 +1,42 @@
+# You can find more information about this file on the symfony website:
+# http://www.symfony-project.org/reference/1_4/en/04-Settings
+
+prod:
+  .settings:
+    no_script_name:      ##NO_SCRIPT_NAME##
+    logging_enabled:     false
+
+dev:
+  .settings:
+#    error_reporting:    <?php echo (E_ALL | E_STRICT)."\n" ?>
+#    Se comenta esta linea de codigo ya que la version de symfony 1.4.20 ya no 
+#    esta en mantenimiento mas y genera errores con versiones actuales de PHP
+#    asi que se está evitando todos los mensajes y advertencia que indica en el
+#    arranque.
+    error_reporting:     <?php echo ((E_STRICT) ^ E_NOTICE)."\n" ?>
+    web_debug:           true
+    cache:               false
+    no_script_name:      false
+    etag:                false
+
+test:
+  .settings:
+#    error_reporting:    <?php echo (E_ALL | E_STRICT)."\n" ?>
+#    Similar al caso de arriba
+    error_reporting:     <?php echo ((E_STRICT) ^ E_NOTICE)."\n" ?>
+    cache:               false
+    web_debug:           false
+    no_script_name:      false
+    etag:                false
+
+all:
+  .settings:
+    # Clave de seguridad para formularios (proteccion CSRF)
+    csrf_secret:         ##CSRF_SECRET##
+
+    # Configuracion de salida de escape
+    escaping_strategy:   ##ESCAPING_STRATEGY##
+    escaping_method:     ESC_SPECIALCHARS
+
+    # Activa el administrador de base de datos
+    use_database:        ##USE_DATABASE##
