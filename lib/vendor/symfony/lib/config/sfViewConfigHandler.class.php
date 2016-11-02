@@ -249,12 +249,20 @@ EOF;
      */
     private function addAssets($type, $assets) {
         $tmp = array();
-
         foreach ((array) $assets as $asset) {
             $position = '';
             if (is_array($asset)) {
+                $myTmp = array_keys($asset);
+                $key = reset($myTmp);
+                $options = $asset[$key];
+                
+                /* Hoy Mié, 2 Nov 2016 13:58:08 deshabilito esta porción de 
+                 * código ya que generaba un error al momento de obtener la 
+                 * clave del array asociativo. la Porción anterior corrige esto
+                 * y esta testeado con PHP 7, debe funcionar con PHP 4 y 5 tambien
                 $key = key($asset);
                 $options = $asset[$key];
+                */
                 if (isset($options['position'])) {
                     $position = $options['position'];
                     unset($options['position']);
