@@ -1,1 +1,0 @@
-    images contiene o guarda todas las imagenes usadas en el proyecto

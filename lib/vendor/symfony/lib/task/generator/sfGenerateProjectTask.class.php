@@ -92,7 +92,7 @@ EOF;
         // cargando los datos para el registro
         self::$_registro['PROJECT_NAME'] = $arguments['name'];
         self::$_registro['AUTHOR_NAME']  = $arguments['author'];
-        
+                
         if (file_exists('symfony')) {
             throw new sfCommandException(sprintf('Un proyecto symfony ya existe en este directorio (%s).', getcwd()));
         }
