@@ -247,8 +247,9 @@ EOF;
      *
      * @return array ist of add$Type PHP statements
      */
-    private function addAssets($type, $assets){
+    private function addAssets($type, $assets) {
         $tmp = array();
+
         foreach ((array) $assets as $asset) {
             $position = '';
             if (is_array($asset)) {

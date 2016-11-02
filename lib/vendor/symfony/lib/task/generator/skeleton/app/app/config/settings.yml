@@ -11,7 +11,7 @@ dev:
 #    error_reporting:    <?php echo (E_ALL | E_STRICT)."\n" ?>
 #    Se comenta esta linea de codigo ya que la version de symfony 1.4.20 ya no 
 #    esta en mantenimiento mas y genera errores con versiones actuales de PHP
-#    asi que se está evitando todos los mensajes y advertencia que indica en el
+#    asi que se está evitando todos los mensajes y advertencias que indica en el
 #    arranque.
     error_reporting:     <?php echo ((E_STRICT) ^ E_NOTICE)."\n" ?>
     web_debug:           true

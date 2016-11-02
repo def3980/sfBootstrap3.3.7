@@ -36,7 +36,7 @@ class sfGenerateAppTask extends sfGeneratorBaseTask {
         $this->addOptions(array(
             new sfCommandOption('escaping-strategy', null, sfCommandOption::PARAMETER_REQUIRED, 'Estrategia salida de escape de caracteres', true),
             new sfCommandOption('csrf-secret', null, sfCommandOption::PARAMETER_REQUIRED, 'Clave secreta para proteccion CSRF', true),
-            new sfCommandOption('routing-bootstrap2', null, sfCommandOption::PARAMETER_REQUIRED, 'Genera rutas personalizadas de Bootstrap2 en la aplicacion', false),
+            new sfCommandOption('routing-bootstrap2', null, sfCommandOption::PARAMETER_REQUIRED, 'Genera rutas personalizadas de Bootstrap3 en la aplicacion', false),
         ));
 
         $this->namespace        = 'generate';
@@ -76,12 +76,12 @@ definiendo una clave secreta con la opcion [csrf-secret|COMMENT]:
 Adicional puedes personalizar el esqueleto por defecto usado por la tarea 
 en el directorio [%sf_data_dir%/skeleton/app|COMMENT].
 
-Finalmente, puedes agregar rutas por defecto para Bootstrap2. Nota: no olvides
-crear el modulo Bootstrap2 tambien y obviamente este parametro viene 
+Finalmente, puedes agregar rutas por defecto para Bootstrap3. Nota: no olvides
+crear el modulo Bootstrap3 tambien y obviamente este parametro viene 
 desactivado (false) por defecto. El ejemplo de abajo indica que se va a activar
 las rutas en el routing.yml
 
-  [./symfony generate:app frontend --generar-rutas-bootstrap2=true|INFO]
+  [./symfony generate:app frontend --generar-rutas-bootstrap3=true|INFO]
 EOF;
     }
 

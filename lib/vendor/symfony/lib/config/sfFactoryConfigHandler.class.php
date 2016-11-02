@@ -27,7 +27,7 @@
  * @author     Sean Kerr <sean@code-box.org>
  * @version    SVN: $Id: sfFactoryConfigHandler.class.php 33299 2011-12-30 17:42:47Z fabien $
  */
-class sfFactoryConfigHandler extends sfYamlConfigHandle {
+class sfFactoryConfigHandler extends sfYamlConfigHandler {
 
     /**
      * Executes this configuration handler.
