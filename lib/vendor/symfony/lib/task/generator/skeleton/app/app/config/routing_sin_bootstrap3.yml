@@ -1,0 +1,16 @@
+# You can find more information about this file on the symfony website:
+# http://www.symfony-project.org/reference/1_4/en/10-Routing
+
+# Reglas por defecto
+homepage:
+  url:   /
+  param: { module: default, action: index }
+
+# Reglas genericas
+# Por favor, quitarlas al agregar nuevas reglas especificas
+default_index:
+  url:   /:module
+  param: { action: index }
+
+default:
+  url:   /:module/:action/*
