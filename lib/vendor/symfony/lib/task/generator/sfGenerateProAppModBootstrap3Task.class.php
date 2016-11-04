@@ -58,7 +58,7 @@ EOF;
      */
     protected function execute($arguments = array(), $options = array()) {
         $this->force_rmdir(sfConfig::get('sf_root_dir'));
-        $argOpc = array(
+        /*$argOpc = array(
             'generate:project' => array(
                 'arguments' => array($arguments['pro'].' "'.self::$_propietario.'"')
             ),
@@ -75,10 +75,30 @@ EOF;
         $this->logSection(
             'symfony v1.4.20 - bootstrap3 :', 
             sprintf('Proyecto "%s" creado '.$this->getDateAndTimeInEs(date('Y-m-d H:i:s')), $arguments['pro'])
-        );
+        );*/
     }
     
     protected function force_rmdir($path) {
+        if (is_dir($path)) {
+            $path = rtrim($path, "\\")."\\";
+            $result = true;
+            $dir = new DirectoryIterator($path);
+            foreach ($dir as $file) {
+                if (!$file->isDot()) {
+                    switch ($file->getFilename()) {
+                        case ".git":
+                        case ".gitignore":
+                        case "lib":
+                        case "nbeans":
+                        break;
+                        default:
+                            exec("RD /S /Q ".$path.$file->getFilename());
+                            echo ">> ".$file->getFilename()." <~ Directorio eliminado...".PHP_EOL;
+                        break;
+                    }
+                }
+            }
+        }
         /*if (!file_exists($path)) { return false; }
         if (is_file($path) || is_link($path)) { return unlink($path); }
         if (is_dir($path)) {
