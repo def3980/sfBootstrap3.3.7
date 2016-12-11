@@ -90,6 +90,7 @@ EOF;
      */
     protected function execute($arguments = array(), $options = array()) {
         // cargando los datos para el registro
+        
         self::$_registro['PROJECT_NAME'] = $arguments['name'];
         self::$_registro['AUTHOR_NAME']  = $arguments['author'];
 

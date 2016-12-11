@@ -104,8 +104,7 @@ class sfCommandManager {
             }
         } else if (!is_array($arguments)) {
             // hack to split arguments with spaces : --test="with some spaces"
-            //$arguments = preg_replace('/(\'|")(.+?)\\1/e', "str_replace(' ', '=PLACEHOLDER=', '\\2')", $arguments); //<<-- En PHP 7 '/e' ya no es soportado
-            $arguments = preg_replace('/(\'|")(.+?)\\1/', "str_replace(' ', '=PLACEHOLDER=', '\\2')", $arguments);
+            $arguments = preg_replace('/(\'|")(.+?)\\1/e', "str_replace(' ', '=PLACEHOLDER=', '\\2')", $arguments);
             $arguments = preg_split('/\s+/', $arguments);
             $arguments = str_replace('=PLACEHOLDER=', ' ', $arguments);
         }
@@ -159,7 +158,7 @@ class sfCommandManager {
      *
      * @return true if there are some validation errors, false otherwise
      */
-    public function isValid() {echo "erros 1: "; print_r(count($this->errors).PHP_EOL);
+    public function isValid() {
         return count($this->errors) ? false : true;
     }
 

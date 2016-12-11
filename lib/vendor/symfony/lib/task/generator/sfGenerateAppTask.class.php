@@ -36,7 +36,7 @@ class sfGenerateAppTask extends sfGeneratorBaseTask {
         $this->addOptions(array(
             new sfCommandOption('escaping-strategy', null, sfCommandOption::PARAMETER_REQUIRED, 'Estrategia salida de escape de caracteres', true),
             new sfCommandOption('csrf-secret', null, sfCommandOption::PARAMETER_REQUIRED, 'Clave secreta para proteccion CSRF', true),
-            new sfCommandOption('routing-bootstrap2', null, sfCommandOption::PARAMETER_REQUIRED, 'Genera rutas personalizadas de Bootstrap3 en la aplicacion', false),
+            new sfCommandOption('routing-bootstrap3', null, sfCommandOption::PARAMETER_REQUIRED, 'Genera rutas personalizadas de Bootstrap3 en la aplicacion', false),
         ));
 
         $this->namespace        = 'generate';
@@ -128,22 +128,22 @@ EOF;
             'USE_DATABASE'      => sfConfig::has('sf_orm') ? 'true' : 'false',
         ));
         
-        /* Eligiendo o no rutas Bootstrap2*/
-        if (false === $options['routing-bootstrap2']) {
+        /* Eligiendo o no rutas Bootstrap3 */
+        if (false === $options['routing-bootstrap3']) {
             $this->getFilesystem()->copy(
-                $appDir.'/config/routing_sin_bootstrap2.yml', 
+                $appDir.'/config/routing_sin_bootstrap3.yml',
                 $appDir.'/config/routing.yml'
             );
         } else {
             $this->getFilesystem()->copy(
-                $appDir.'/config/routing_con_bootstrap2.yml', 
+                $appDir.'/config/routing_con_bootstrap3.yml',
                 $appDir.'/config/routing.yml'
             );
         }
         
         // Borrando routings no necesarios
-        $this->getFilesystem()->remove($appDir.'/config/routing_con_bootstrap2.yml');
-        $this->getFilesystem()->remove($appDir.'/config/routing_sin_bootstrap2.yml');
+        $this->getFilesystem()->remove($appDir.'/config/routing_con_bootstrap3.yml');
+        $this->getFilesystem()->remove($appDir.'/config/routing_sin_bootstrap3.yml');
 
         $this->getFilesystem()->copy($skeletonDir.'/web/index.php', sfConfig::get('sf_web_dir').'/'.$indexName.'.php');
         $this->getFilesystem()->copy($skeletonDir.'/web/index.php', sfConfig::get('sf_web_dir').'/'.$app.'_dev.php');
@@ -179,7 +179,7 @@ EOF;
         $fixPerms->run();
 
         // Crea el directorio test
-        $this->getFilesystem()->mkdirs(sfConfig::get('sf_test_dir').'/functional/'.$app);
+        //$this->getFilesystem()->mkdirs(sfConfig::get('sf_test_dir').'/functional/'.$app);
     }
 
 }

@@ -42,8 +42,8 @@ class sfGenerateProAppModBootstrap3Task extends sfGeneratorBaseTask {
         $this->briefDescription = '>> Genera un proyecto symfony - bootstrap3';
         $this->detailedDescription = <<<EOF
 La tarea [generate:pro-app-mod|INFO] crea un proyecto completo con todas las 
-librerias, modulos, controladores, orm, swiftmailer y plugins de doctrine, 
-bootstrap3 con el framework de symfony 1.4.20. 
+librerias, modulos, controladores, orm, swiftmailer, plugins de doctrine y 
+bootstrap3 con el framework de symfony 1.4.20.
 Requiere de tres parametros obligatorios:
  - nombre_proyecto
  - nombre_de_la_aplicacion (Default: frontend)
@@ -58,6 +58,7 @@ EOF;
      */
     protected function execute($arguments = array(), $options = array()) {
         /*$this->force_rmdir(sfConfig::get('sf_root_dir'));die();*/
+
         $argOpc = array(
             'generate:project' => array(
                 'arguments' => array($arguments['pro'].' "'.self::$_propietario.'"')
@@ -74,7 +75,7 @@ EOF;
         endforeach;
         $this->logSection(
             'symfony v1.4.20 - bootstrap3 :', 
-            sprintf('Proyecto "%s" creado '.$this->getDateAndTimeInEs(date('Y-m-d H:i:s')), $arguments['pro'])
+            sprintf('Proyecto "%s" creado satisfactoriamente :: '.$this->getDateAndTimeInEs(date('Y-m-d H:i:s')), $arguments['pro'])
         );
     }
     
@@ -87,18 +88,19 @@ EOF;
                 if (!$file->isDot()) {
                     switch ($file->getFilename()) {
                         case ".git":
+                        case ".idea":
                         case ".gitignore":
                         case "lib":
                         case "nbeans":
                         break;
                         default:                            
-                            if (is_dir($path.$file->getFilename())):
+                            /*if (is_dir($path.$file->getFilename())):
                                 exec("RD /S /Q ".$path.$file->getFilename());
                                 echo ">> ".$file->getFilename()." <~ Directorio eliminado...".PHP_EOL;
                             else:
                                 exec("DEL \"".$path.$file->getFilename()."\"");
                                 echo ">> ".$file->getFilename()." <~ Archivo eliminado...".PHP_EOL;
-                            endif;
+                            endif;*/
                         break;
                     }
                 }
