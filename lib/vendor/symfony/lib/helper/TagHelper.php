@@ -169,3 +169,30 @@ function _convert_options($options) {
 
     return $options;
 }
+
+/**
+ * Creado un Domingo, 11 Diciembre 2016 11:50:01
+ * Por: Oswaldo Rojas
+ * Ubicación: Casa de mi esposa
+ */
+/**
+ * Construye una etiqueta html para aplicarlo a bootstrap3.
+ *
+ * @param  string $name     nombre de la etiqueta
+ * @param  array  $options  opciones de la etiqueta
+ * @param  bool   $open     true para dejar la etiqueta abierta
+ * @return string
+ */
+function tagBst3($name, $options = array(), $open = false) {
+    return !$name ? '' : '<'.$name._tag_optionsBst3($options).($open ? '>' : ' />');
+}
+function _tag_optionsBst3($options = array()) {
+    $options = _parse_attributes($options);
+
+    $html = '';
+    foreach (array_reverse($options) as $key => $value)
+        $html .= ' '.$key.'="'.escape_once($value).'"';
+
+    return $html;
+}
+/* ------------------------------------------------------------------------------------- */

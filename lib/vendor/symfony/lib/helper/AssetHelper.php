@@ -430,9 +430,13 @@ function _compute_public_path($source, $dir, $ext, $absolute = false) {
 function include_metas() {
     $context = sfContext::getInstance();
     $i18n = sfConfig::get('sf_i18n') ? $context->getI18N() : null;
+
     foreach ($context->getResponse()->getMetas() as $name => $content) {
         if (strpos($content, '~') === false) {
-            echo "\t".tag('meta', array('name' => $name, 'content' => null === $i18n ? $content : $i18n->__($content))).PHP_EOL;
+            echo "\t" . tagBst3('meta', array('name' => $name, 'content' => null === $i18n ? $content : $i18n->__($content))) . PHP_EOL;
+        } else if (strpos($content, '~*') == true) {
+            $myOptions = explode("~*", $content);
+            echo "\t".'<meta content="'.$myOptions[0].'" '.$name.'="'.$myOptions[1].'" />'.PHP_EOL;
         } else {
             echo "\t".tag('meta', array($name => str_replace('~', '', $content))).PHP_EOL;
         }
