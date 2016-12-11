@@ -230,7 +230,8 @@ function stylesheet_tag() {
         } elseif (isset($sourceOptions['icons']) && $sourceOptions['icons']) {
             $icons = $sourceOptions['icons'];
             unset($sourceOptions['icons']);
-            $options = array_merge($sourceOptions, array('href' => $source));
+            //$options = array_merge($sourceOptions, array('href' => $source));
+            $options = array_merge(array('href' => $source, 'rel' => $sourceOptions), $sourceOptions);
         } elseif (isset($sourceOptions['inside']) && $sourceOptions['inside']) {
             $inside = $sourceOptions['inside'];
             unset($sourceOptions['inside']);
@@ -494,7 +495,7 @@ function get_javascripts() {
 
     $html = '';
     foreach ($response->getJavascripts() as $file => $options) {
-        $html .= javascript_include_tag($file, $options);
+        $html .= str_repeat("\t", 1).javascript_include_tag($file, $options);
     }
 
     return $html;
@@ -524,7 +525,7 @@ function get_stylesheets() {
 
     $html = '';
     foreach ($response->getStylesheets() as $file => $options) {
-        $html .= stylesheet_tag($file, $options);
+        $html .= str_repeat("\t", 1).stylesheet_tag($file, $options);
     }
 
     return $html;
