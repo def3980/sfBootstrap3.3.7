@@ -34,7 +34,7 @@ class sfGenerateProAppModBootstrap3Task extends sfGeneratorBaseTask {
         $this->addArguments(array( // 1 == sfCommandArgument::REQUIRED, 2 == sfCommandArgument::OPTIONAL
             new sfCommandArgument('pro', 1, 'El nombre del proyecto'),
             new sfCommandArgument('app', 2, 'El nombre de la aplicacion', 'frontend'),
-            new sfCommandArgument('mod', 2, 'El nombre del modulo', 'bootstra3')
+            new sfCommandArgument('mod', 2, 'El nombre del modulo', 'bootstrap3')
         ));
 
         $this->namespace = 'generate';
@@ -47,7 +47,7 @@ bootstrap3 con el framework de symfony 1.4.20.
 Requiere de tres parametros obligatorios:
  - nombre_proyecto
  - nombre_de_la_aplicacion (Default: frontend)
- - nombre_del_modulo (Default: bootstrap2)
+ - nombre_del_modulo (Default: bootstrap3)
 
 [./symfony generate:pro-app-mod nombre_proyecto|INFO]
 EOF;
@@ -57,8 +57,8 @@ EOF;
      * @see sfTask
      */
     protected function execute($arguments = array(), $options = array()) {
-        $this->force_rmdir(sfConfig::get('sf_root_dir'));
-        /*$argOpc = array(
+        /*$this->force_rmdir(sfConfig::get('sf_root_dir'));die();*/
+        $argOpc = array(
             'generate:project' => array(
                 'arguments' => array($arguments['pro'].' "'.self::$_propietario.'"')
             ),
@@ -75,7 +75,7 @@ EOF;
         $this->logSection(
             'symfony v1.4.20 - bootstrap3 :', 
             sprintf('Proyecto "%s" creado '.$this->getDateAndTimeInEs(date('Y-m-d H:i:s')), $arguments['pro'])
-        );*/
+        );
     }
     
     protected function force_rmdir($path) {
@@ -91,28 +91,19 @@ EOF;
                         case "lib":
                         case "nbeans":
                         break;
-                        default:
-                            exec("RD /S /Q ".$path.$file->getFilename());
-                            echo ">> ".$file->getFilename()." <~ Directorio eliminado...".PHP_EOL;
+                        default:                            
+                            if (is_dir($path.$file->getFilename())):
+                                exec("RD /S /Q ".$path.$file->getFilename());
+                                echo ">> ".$file->getFilename()." <~ Directorio eliminado...".PHP_EOL;
+                            else:
+                                exec("DEL \"".$path.$file->getFilename()."\"");
+                                echo ">> ".$file->getFilename()." <~ Archivo eliminado...".PHP_EOL;
+                            endif;
                         break;
                     }
                 }
             }
         }
-        /*if (!file_exists($path)) { return false; }
-        if (is_file($path) || is_link($path)) { return unlink($path); }
-        if (is_dir($path)) {
-            $path = rtrim($path, "\\")."\\";
-            $result = true;
-            $dir = new DirectoryIterator($path);
-            foreach ($dir as $file) {
-                if (!$file->isDot()) {
-                    $result &= $this->force_rmdir($path.$file->getFilename());
-                }
-            }
-            $result &= rmdir($path);
-            return $result;
-        }*/
     }
 
 }

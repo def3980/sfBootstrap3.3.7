@@ -159,7 +159,7 @@ class sfCommandManager {
      *
      * @return true if there are some validation errors, false otherwise
      */
-    public function isValid() {
+    public function isValid() {echo "erros 1: "; print_r(count($this->errors).PHP_EOL);
         return count($this->errors) ? false : true;
     }
 

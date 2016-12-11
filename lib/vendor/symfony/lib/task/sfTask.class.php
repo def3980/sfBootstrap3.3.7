@@ -97,81 +97,70 @@ abstract class sfTask
     return $this->doRun($commandManager, $options);
   }
 
-  /**
-   * Runs the task.
-   *
-   * @param array|string $arguments  An array of arguments or a string representing the CLI arguments and options
-   * @param array        $options    An array of options
-   *
-   * @return integer 0 if everything went fine, or an error code
-   */
-  public function run($arguments = array(), $options = array())
-  {
-    $commandManager = new sfCommandManager(new sfCommandArgumentSet($this->getArguments()), new sfCommandOptionSet($this->getOptions()));
+    /**
+     * Runs the task.
+     *
+     * @param array|string $arguments  An array of arguments or a string representing the CLI arguments and options
+     * @param array        $options    An array of options
+     *
+     * @return integer 0 if everything went fine, or an error code
+     */
+    public function run($arguments = array(), $options = array()) {
+        $commandManager = new sfCommandManager(new sfCommandArgumentSet($this->getArguments()), new sfCommandOptionSet($this->getOptions()));
 
-    if (is_array($arguments) && is_string(key($arguments)))
-    {
-      // index arguments by name for ordering and reference
-      $indexArguments = array();
-      foreach ($this->arguments as $argument)
-      {
-        $indexArguments[$argument->getName()] = $argument;
-      }
+        if (is_array($arguments) && is_string(key($arguments))) {
+            // index arguments by name for ordering and reference
+            $indexArguments = array();
+            foreach ($this->arguments as $argument) {
+                $indexArguments[$argument->getName()] = $argument;
+            }
 
-      foreach ($arguments as $name => $value)
-      {
-        if (false !== $pos = array_search($name, array_keys($indexArguments)))
-        {
-          if ($indexArguments[$name]->isArray())
-          {
-            $value = join(' ', (array) $value);
-            $arguments[$pos] = isset($arguments[$pos]) ? $arguments[$pos].' '.$value : $value;
-          }
-          else
-          {
-            $arguments[$pos] = $value;
-          }
+            foreach ($arguments as $name => $value) {
+                if (false !== $pos = array_search($name, array_keys($indexArguments))) {
+                    if ($indexArguments[$name]->isArray()) {
+                        $value = join(' ', (array) $value);
+                        $arguments[$pos] = isset($arguments[$pos]) ? $arguments[$pos].' '.$value : $value;
+                    } else {
+                        $arguments[$pos] = $value;
+                    }
 
-          unset($arguments[$name]);
+                    unset($arguments[$name]);
+                }
+            }
+
+            ksort($arguments);
         }
-      }
-
-      ksort($arguments);
-    }
-
-    // index options by name for reference
-    $indexedOptions = array();
-    foreach ($this->options as $option)
-    {
-      $indexedOptions[$option->getName()] = $option;
-    }
-
-    foreach ($options as $name => $value)
-    {
-      if (is_string($name))
-      {
-        if (false === $value || null === $value || (isset($indexedOptions[$name]) && $indexedOptions[$name]->isArray() && !$value))
-        {
-          unset($options[$name]);
-          continue;
+        
+        // index options by name for reference
+        $indexedOptions = array();
+        foreach ($this->options as $option) {
+            $indexedOptions[$option->getName()] = $option;
         }
 
-        // convert associative array
-        $value = true === $value ? $name : sprintf('%s=%s', $name, isset($indexedOptions[$name]) && $indexedOptions[$name]->isArray() ? join(' --'.$name.'=', (array) $value) : $value);
-      }
+        foreach ($options as $name => $value) {
+            if (is_string($name)) {
+                if (false === $value
+                    || null === $value
+                    || (isset($indexedOptions[$name]) && $indexedOptions[$name]->isArray() && !$value)) {
+                    unset($options[$name]);
+                    continue;
+                }
 
-      // add -- before each option if needed
-      if (0 !== strpos($value, '--'))
-      {
-        $value = '--'.$value;
-      }
+                // convert associative array
+                $value = true === $value ? $name : sprintf('%s=%s', $name, isset($indexedOptions[$name]) && $indexedOptions[$name]->isArray() ? join(' --'.$name.'=', (array) $value) : $value);
+            }
 
-      $options[] = $value;
-      unset($options[$name]);
+            // add -- before each option if needed
+            if (0 !== strpos($value, '--')) {
+                $value = '--'.$value;
+            }
+
+            $options[] = $value;
+            unset($options[$name]);
+        }
+
+        return $this->doRun($commandManager, is_string($arguments) ? $arguments : implode(' ', array_merge($arguments, $options)));
     }
-
-    return $this->doRun($commandManager, is_string($arguments) ? $arguments : implode(' ', array_merge($arguments, $options)));
-  }
 
   /**
    * Returns the argument objects.
@@ -345,35 +334,36 @@ abstract class sfTask
     return sprintf('%%s %s %s %s', $this->getFullName(), implode(' ', $options), implode(' ', $arguments));
   }
 
-  protected function process(sfCommandManager $commandManager, $options)
-  {
-    $commandManager->process($options);
-    if (!$commandManager->isValid())
-    {
-      throw new sfCommandArgumentsException(sprintf("The execution of task \"%s\" failed.\n- %s", $this->getFullName(), implode("\n- ", $commandManager->getErrors())));
-    }
-  }
-
-  protected function doRun(sfCommandManager $commandManager, $options)
-  {
-    $event = $this->dispatcher->filter(new sfEvent($this, 'command.filter_options', array('command_manager' => $commandManager)), $options);
-    $options = $event->getReturnValue();
-
-    $this->process($commandManager, $options);
-
-    $event = new sfEvent($this, 'command.pre_command', array('arguments' => $commandManager->getArgumentValues(), 'options' => $commandManager->getOptionValues()));
-    $this->dispatcher->notifyUntil($event);
-    if ($event->isProcessed())
-    {
-      return $event->getReturnValue();
+    protected function process(sfCommandManager $commandManager, $options) {
+        $commandManager->process($options);//var_dump(!$commandManager->isValid());die();
+        if (!$commandManager->isValid()) {
+            throw new sfCommandArgumentsException(
+                sprintf(
+                    "The execution of task \"%s\" failed.\n- %s"
+                    , $this->getFullName()
+                    , implode("\n- ", $commandManager->getErrors())
+                )
+            );
+        }
     }
 
-    $ret = $this->execute($commandManager->getArgumentValues(), $commandManager->getOptionValues());
+    protected function doRun(sfCommandManager $commandManager, $options) {
+        $event = $this->dispatcher->filter(new sfEvent($this, 'command.filter_options', array('command_manager' => $commandManager)), $options);
+        $options = $event->getReturnValue();
+        $this->process($commandManager, $options);
 
-    $this->dispatcher->notify(new sfEvent($this, 'command.post_command'));
+        $event = new sfEvent($this, 'command.pre_command', array('arguments' => $commandManager->getArgumentValues(), 'options' => $commandManager->getOptionValues()));
+        $this->dispatcher->notifyUntil($event);
+        if ($event->isProcessed()) {
+            return $event->getReturnValue();
+        }
 
-    return $ret;
-  }
+        $ret = $this->execute($commandManager->getArgumentValues(), $commandManager->getOptionValues());
+
+        $this->dispatcher->notify(new sfEvent($this, 'command.post_command'));
+
+        return $ret;
+    }
 
   /**
    * Logs a message.

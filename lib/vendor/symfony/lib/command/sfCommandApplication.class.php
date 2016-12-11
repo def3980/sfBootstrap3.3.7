@@ -426,7 +426,7 @@ abstract class sfCommandApplication {
         } else {
             $namespace = '';
         }
-
+        
         // name
         $tasks = array();
         foreach ($this->tasks as $taskName => $task) {

@@ -55,47 +55,44 @@ abstract class sfCommandApplicationTask extends sfTask
     }
   }
 
-  /**
-   * Creates a new task object.
-   *
-   * @param  string $name The name of the task
-   *
-   * @return sfTask
-   *
-   * @throws LogicException If the current task has no command application
-   */
-  protected function createTask($name)
-  {
-    if (null === $this->commandApplication)
-    {
-      throw new LogicException('Unable to create a task as no command application is associated with this task yet.');
+    /**
+     * Creates a new task object.
+     *
+     * @param  string $name The name of the task
+     *
+     * @return sfTask
+     *
+     * @throws LogicException If the current task has no command application
+     */
+    protected function createTask($name) {
+        if (null === $this->commandApplication) {
+            throw new LogicException('Unable to create a task as no command application is associated with this task yet.');
+        }
+
+        $task = $this->commandApplication->getTaskToExecute($name);
+
+        if ($task instanceof sfCommandApplicationTask) {
+            $task->setCommandApplication($this->commandApplication);
+        }
+
+        return $task;
     }
 
-    $task = $this->commandApplication->getTaskToExecute($name);
-
-    if ($task instanceof sfCommandApplicationTask)
-    {
-      $task->setCommandApplication($this->commandApplication);
+    /**
+     * Executes another task in the context of the current one.
+     *
+     * @param  string  $name      The name of the task to execute
+     * @param  array   $arguments An array of arguments to pass to the task
+     * @param  array   $options   An array of options to pass to the task
+     *
+     * @return Boolean The returned value of the task run() method
+     *
+     * @see createTask()
+     */
+    protected function runTask($name, $arguments = array(), $options = array()) {
+        return $this->createTask($name)
+                    ->run($arguments, $options);
     }
-
-    return $task;
-  }
-
-  /**
-   * Executes another task in the context of the current one.
-   *
-   * @param  string  $name      The name of the task to execute
-   * @param  array   $arguments An array of arguments to pass to the task
-   * @param  array   $options   An array of options to pass to the task
-   *
-   * @return Boolean The returned value of the task run() method
-   *
-   * @see createTask()
-   */
-  protected function runTask($name, $arguments = array(), $options = array())
-  {
-    return $this->createTask($name)->run($arguments, $options);
-  }
 
   /**
    * Returns a mailer instance.
