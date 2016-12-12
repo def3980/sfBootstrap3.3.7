@@ -31,7 +31,7 @@
     ));
 ?>
     </head>
-    <body>
+    <body<?php if (has_slot('add_body')): " ".include_slot('add_body'); endif; ?>>
         <?php echo $sf_content."\n" ?>
         <!-- Librerias javascript/jQuery ============================== -->
 <?php include_javascripts() ?>
