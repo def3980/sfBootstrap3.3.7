@@ -69,7 +69,7 @@
                 <hr class="half-rule">
                 <div class="row">
                     <div class="col-sm-4">
-                        <img alt="Sass and Less support" src="assets/img/sass-less.png" class="img-responsive">
+                        <?php echo image_tag('sass-less', array('alt' => 'Sass and Less support', 'class' => 'img-responsive')).PHP_EOL ?>
                         <h3>Preprocessors</h3>
                         <p>Bootstrap ships with vanilla CSS, but its source code utilizes the two most popular CSS preprocessors,
                             <a href="../css/#less">Less</a> and
@@ -77,12 +77,12 @@
                         </p>
                     </div>
                     <div class="col-sm-4">
-                        <img alt="Responsive across devices" src="assets/img/devices.png" class="img-responsive">
+                        <?php echo image_tag('devices', array('alt' => 'Responsive across devices', 'class' => 'img-responsive')).PHP_EOL ?>
                         <h3>One framework, every device.</h3>
                         <p>Bootstrap easily and efficiently scales your websites and applications with a single code base, from phones to tablets to desktops with CSS media queries.</p>
                     </div>
                     <div class="col-sm-4">
-                        <img alt="Components" src="assets/img/components.png" class="img-responsive">
+                        <?php echo image_tag('components', array('alt' => 'Components', 'class' => 'img-responsive')).PHP_EOL ?>
                         <h3>Full of features</h3>
                         <p>With Bootstrap, you get extensive and beautiful documentation for common HTML elements, dozens of custom HTML and CSS components, and awesome jQuery plugins.</p>
                     </div>
@@ -101,24 +101,32 @@
                 <hr class="half-rule">
                 <div class="row bs-docs-featured-sites">
                     <div class="col-xs-6 col-sm-3">
-                        <a href="http://expo.getbootstrap.com/2014/10/29/lyft/" target="_blank" title="Lyft">
-                            <img alt="Lyft" src="/assets/img/expo-lyft.jpg" class="img-responsive">
-                        </a>
+                        <?php echo link_to(
+                                    image_tag('expo-lyft.jpg', array('alt' => 'Lyft', 'class' => 'img-responsive'))
+                                    , 'http://expo.getbootstrap.com/2014/10/29/lyft/'
+                                    , array('target' => '_blank', 'title' => 'Lyft')
+                                   ).PHP_EOL ?>
                     </div>
                     <div class="col-xs-6 col-sm-3">
-                        <a href="http://expo.getbootstrap.com/2014/09/30/vogue/" target="_blank" title="Vogue">
-                            <img alt="Vogue" src="/assets/img/expo-vogue.jpg" class="img-responsive">
-                        </a>
+                        <?php echo link_to(
+                                    image_tag('expo-vogue.jpg', array('alt' => 'Vogue', 'class' => 'img-responsive'))
+                                    , 'http://expo.getbootstrap.com/2014/09/30/vogue/'
+                                    , array('target' => '_blank', 'title' => 'Vogue')
+                                   ).PHP_EOL ?>
                     </div>
                     <div class="col-xs-6 col-sm-3">
-                        <a href="http://expo.getbootstrap.com/2014/03/13/riot-design/" target="_blank" title="Riot Design">
-                            <img alt="Riot Design" src="/assets/img/expo-riot.jpg" class="img-responsive">
-                        </a>
+                        <?php echo link_to(
+                                    image_tag('expo-riot.jpg', array('alt' => 'Riot Design', 'class' => 'img-responsive'))
+                                    , 'http://expo.getbootstrap.com/2014/03/13/riot-design/'
+                                    , array('target' => '_blank', 'title' => 'Riot Design')
+                                   ).PHP_EOL ?>
                     </div>
                     <div class="col-xs-6 col-sm-3">
-                        <a href="http://expo.getbootstrap.com/2014/02/12/newsweek/" target="_blank" title="Newsweek">
-                            <img alt="Newsweek" src="/assets/img/expo-newsweek.jpg" class="img-responsive">
-                        </a>
+                        <?php echo link_to(
+                                    image_tag('expo-newsweek.jpg', array('alt' => 'Newsweek', 'class' => 'img-responsive'))
+                                    , 'http://expo.getbootstrap.com/2014/03/13/riot-design/'
+                                    , array('target' => '_blank', 'title' => 'Newsweek')
+                                   ).PHP_EOL ?>
                     </div>
                 </div>
                 <hr class="half-rule">
