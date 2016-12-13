@@ -5,57 +5,20 @@
 bootstrap3_index:
   url:   /bootstrap3
   param: { module: bootstrap3, action: index }
-# Ejemplos dentro de index
-bootstrap3_extend:
-  url:   /bootstrap3/extend.html
-  param: { module: bootstrap3, action: extend }
-# -- Fin de los ejemplos
 bootstrap3_getting_started:
-  url:   /bootstrap3/getting-started.html
+  url:   /bootstrap3/getting-started
   param: { module: bootstrap3, action: gettingStarted }
-# Ejemplos dentro de Getting Starter
-bootstrap3_examples_starter_template:
-  url:   /bootstrap3/examples/starter-template.html
-  param: { module: bootstrap3, action: starterTemplate }
-bootstrap3_examples_hero:
-  url:   /bootstrap3/examples/hero.html
-  param: { module: bootstrap3, action: hero }
-bootstrap3_examples_fluid:
-  url:   /bootstrap3/examples/fluid.html
-  param: { module: bootstrap3, action: fluid }
-bootstrap3_examples_marketing_narrow:
-  url:   /bootstrap3/examples/marketing-narrow.html
-  param: { module: bootstrap3, action: marketingNarrow }
-bootstrap3_examples_justified_nav:
-  url:   /bootstrap3/examples/justified-nav.html
-  param: { module: bootstrap3, action: justifiedNav }
-bootstrap3_examples_signin:
-  url:   /bootstrap3/examples/signin.html
-  param: { module: bootstrap3, action: signin }
-bootstrap3_examples_sticky_footer:
-  url:   /bootstrap3/examples/sticky-footer.html
-  param: { module: bootstrap3, action: stickyFooter }
-bootstrap3_examples_sticky_footer_navbar:
-  url:   /bootstrap3/examples/sticky-footer-navbar.html
-  param: { module: bootstrap3, action: stickyFooterNavbar }
-bootstrap3_examples_carousel:
-  url:   /bootstrap3/examples/carousel.html
-  param: { module: bootstrap3, action: carousel }
-# -- Fin de los ejemplos
-bootstrap3_scaffolding:
-  url:   /bootstrap3/scaffolding.html
-  param: { module: bootstrap3, action: scaffolding }
-bootstrap3_base_css:
-  url:   /bootstrap3/base-css.html
-  param: { module: bootstrap3, action: baseCss }
+bootstrap3_css:
+  url:   /bootstrap3/css
+  param: { module: bootstrap3, action: css }
 bootstrap3_components:
-  url:   /bootstrap3/components.html
+  url:   /bootstrap3/components
   param: { module: bootstrap3, action: components }
 bootstrap3_javascript:
-  url:   /bootstrap3/javascript.html
+  url:   /bootstrap3/javascript
   param: { module: bootstrap3, action: javascript }
 bootstrap3_customize:
-  url:   /bootstrap3/customize.html
+  url:   /bootstrap3/customize
   param: { module: bootstrap3, action: customize }
 # + -------------------------------------------------------------------------- +
 
