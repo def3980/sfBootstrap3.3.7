@@ -3,7 +3,7 @@
 
 # + ----------------------------------------------------------- rutas bootstrap3
 bootstrap3_index:
-  url:   /bootstrap3/index.html
+  url:   /bootstrap3
   param: { module: bootstrap3, action: index }
 # Ejemplos dentro de index
 bootstrap3_extend:

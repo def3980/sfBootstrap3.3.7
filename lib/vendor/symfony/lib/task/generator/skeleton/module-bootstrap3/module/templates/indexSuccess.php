@@ -13,36 +13,20 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a href="../" class="navbar-brand">Bootstrap</a>
+                    <?php echo link_to('Bootstrap', '@bootstrap3_index', array('class' => 'navbar-brand')).PHP_EOL ?>
                 </div>
                 <nav class="collapse navbar-collapse" id="bs-navbar">
                     <ul class="nav navbar-nav">
-                        <li>
-                            <a href="../getting-started/">Getting started</a>
-                        </li>
-                        <li>
-                            <a href="../css/">CSS</a>
-                        </li>
-                        <li>
-                            <a href="../components/">Components</a>
-                        </li>
-                        <li>
-                            <a href="../javascript/">JavaScript</a>
-                        </li>
-                        <li>
-                            <a href="../customize/">Customize</a>
-                        </li>
+                        <li><a href="../getting-started/">Getting started</a></li>
+                        <li><a href="../css/">CSS</a></li>
+                        <li><a href="../components/">Components</a></li>
+                        <li><a href="../javascript/">JavaScript</a></li>
+                        <li><a href="../customize/">Customize</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <li>
-                            <a href="http://themes.getbootstrap.com" onclick='ga("send","event","Navbar","Community links","Themes")'>Themes</a>
-                        </li>
-                        <li>
-                            <a href="http://expo.getbootstrap.com" onclick='ga("send","event","Navbar","Community links","Expo")'>Expo</a>
-                        </li>
-                        <li>
-                            <a href="http://blog.getbootstrap.com" onclick='ga("send","event","Navbar","Community links","Blog")'>Blog</a>
-                        </li>
+                        <li><a href="http://themes.getbootstrap.com" onclick='ga("send","event","Navbar","Community links","Themes")'>Themes</a></li>
+                        <li><a href="http://expo.getbootstrap.com" onclick='ga("send","event","Navbar","Community links","Expo")'>Expo</a></li>
+                        <li><a href="http://blog.getbootstrap.com" onclick='ga("send","event","Navbar","Community links","Blog")'>Blog</a></li>
                     </ul>
                 </nav>
             </div>
@@ -89,7 +73,7 @@
                 </div>
                 <hr class="half-rule">
                 <p class="lead">Bootstrap is open source. It's hosted, developed, and maintained on GitHub.</p>
-                <a href="https://github.com/twbs/bootstrap" class="btn btn-outline btn-lg">View the GitHub project</a>
+                <?php echo link_to('View the GitHub project', 'https://github.com/twbs/bootstrap', array('class' => 'btn btn-outline btn-lg')).PHP_EOL ?>
             </div>
         </div>
         <div class="bs-docs-featurette">
@@ -131,24 +115,16 @@
                 </div>
                 <hr class="half-rule">
                 <p class="lead">We showcase dozens of inspiring projects built with Bootstrap on the Bootstrap Expo.</p>
-                <a href="http://expo.getbootstrap.com" class="btn btn-outline btn-lg">Explore the Expo</a>
+                <?php echo link_to('Explore the Expo', 'http://expo.getbootstrap.com', array('class' => 'btn btn-outline btn-lg')).PHP_EOL ?>
             </div>
         </div>
         <footer class="bs-docs-footer">
             <div class="container">
                 <ul class="bs-docs-footer-links">
-                    <li>
-                        <a href="https://github.com/twbs/bootstrap">GitHub</a>
-                    </li>
-                    <li>
-                        <a href="https://twitter.com/getbootstrap">Twitter</a>
-                    </li>
-                    <li>
-                        <a href="../getting-started/#examples">Examples</a>
-                    </li>
-                    <li>
-                        <a href="../about/">About</a>
-                    </li>
+                    <li><?php echo link_to('GitHub', 'https://github.com/twbs/bootstrap') ?></li>
+                    <li><?php echo link_to('Twitter', 'https://twitter.com/getbootstrap') ?></li>
+                    <li><a href="../getting-started/#examples">Examples</a></li>
+                    <li><a href="../about/">About</a></li>
                 </ul>
                 <p>Designed and built with all the love in the world by
                     <a href="https://twitter.com/mdo" target="_blank">@mdo</a> and
